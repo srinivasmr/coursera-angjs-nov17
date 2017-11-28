@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOff">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Coursera - Module 2: Services</title>
+      <script src="angular.min.js"></script>
+      <script src="app.js"></script>
+  </head>
+  <body>
+    <div>
+        <h4>To Buy</h4>
+        <div ng-controller="ToBuyController as buyList">
+            <ol>
+              <li ng-repeat="item in buyList.itemsToBuy">
+                  buy {{item.qty}} of {{item.name}}
+                  <button ng-click="buyList.boughtItem($index);">Bought</button>
+              </li>
+            </ol>
+            <div ng-if="buyList.itemsToBuy.length===0">Everything is bought!</div>
+        </div>
+
+        <h4>Already Bought</h4>
+
+        <div ng-controller="AlreadyBoughtController as boughtList">
+          <ol>
+            <li ng-repeat="item in boughtList.itemsBought">
+                bought {{item.qty}} of {{item.name}}
+
+            </li>
+          </ol>
+
+        </div>
+
+    </div>
+  </body>
+</html>
